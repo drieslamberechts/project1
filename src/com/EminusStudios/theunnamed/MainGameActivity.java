@@ -1,8 +1,5 @@
 package com.EminusStudios.theunnamed;
 
-// This is a better test comment from Tamby ;)
-// Oh you silly person!
-// hi
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
