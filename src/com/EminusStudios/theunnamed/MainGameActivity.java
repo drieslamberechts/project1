@@ -6,9 +6,6 @@ import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.WakeLockOptions;
 import org.andengine.engine.options.resolutionpolicy.FillResolutionPolicy;
 import org.andengine.entity.scene.Scene;
-import org.andengine.ui.IGameInterface.OnCreateResourcesCallback;
-import org.andengine.ui.IGameInterface.OnCreateSceneCallback;
-import org.andengine.ui.IGameInterface.OnPopulateSceneCallback;
 import org.andengine.ui.activity.BaseGameActivity;
 
 public class MainGameActivity extends BaseGameActivity {
@@ -55,8 +52,8 @@ public class MainGameActivity extends BaseGameActivity {
 	 * sounds, and fonts for the most part. 
 	 */
 	@Override
-	public void onCreateResources(
-			OnCreateResourcesCallback pOnCreateResourcesCallback) {
+	public void onCreateResources(OnCreateResourcesCallback pOnCreateResourcesCallback) 
+	{
 		
 		/* We should notify the pOnCreateResourcesCallback that we've finished
 		 * loading all of the necessary resources in our game AFTER they are loaded.
@@ -71,7 +68,8 @@ public class MainGameActivity extends BaseGameActivity {
 	 * related to the scene.
 	 */
 	@Override
-	public void onCreateScene(OnCreateSceneCallback pOnCreateSceneCallback) {
+	public void onCreateScene(OnCreateSceneCallback pOnCreateSceneCallback) 
+	{
 		// Create the Scene object
 		mScene = new Scene();
 
