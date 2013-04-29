@@ -31,4 +31,6 @@ public class ResourceManager
 		}
 		return INSTANCE;
 	}
+	
+	// LOOK AT THE BOOK TO ADD FUNCTIONS TO LOAD RESOURCES
 }
