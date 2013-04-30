@@ -47,9 +47,9 @@ public class ResourceManager
 	public void LoadSplashScreenResources(Engine pEngine, Context pContext)
 	{
 		// Set our game assets folder in "assets/gfx/splash/"
-		// BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/splash/");
+		BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");
 		
-		BuildableBitmapTextureAtlas mBitmapTextureAtlas = new BuildableBitmapTextureAtlas(pEngine.getTextureManager(), 800, 480);
+		BuildableBitmapTextureAtlas mBitmapTextureAtlas = new BuildableBitmapTextureAtlas(pEngine.getTextureManager(), 1024, 1024);
 		
 		mGameBackgroundTextureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(mBitmapTextureAtlas, pContext, "splash.jpg");
 		
