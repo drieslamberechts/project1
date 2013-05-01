@@ -2,6 +2,7 @@ package com.EminusStudios.theunnamed;
 
 import org.andengine.audio.sound.Sound;
 import org.andengine.engine.Engine;
+import org.andengine.engine.camera.Camera;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
@@ -10,7 +11,10 @@ import org.andengine.opengl.texture.atlas.bitmap.source.IBitmapTextureAtlasSourc
 import org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder;
 import org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder.TextureAtlasBuilderException;
 import org.andengine.opengl.texture.region.ITextureRegion;
+import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.debug.Debug;
+
+import com.EminusStudios.General.GameActivity;
 
 import android.content.Context;
 
@@ -18,15 +22,29 @@ public class ResourceManager
 {
 	private static ResourceManager INSTANCE;
 	
-	// VARIABLES
+	//---------------------------------------------
+    // VARIABLES
+    //---------------------------------------------    
 	
 	/* The variables listed should be kept public, allowing us easy
 	access to them when creating new Sprites, Text objects and to play soundfiles */
 	
-	public static ITextureRegion mGameBackgroundTextureRegion;
+    public Engine engine;
+    public MainGameActivity activity;
+    public Camera camera;
+    public VertexBufferObjectManager vbom;
+	
+	//---------------------------------------------
+    // TEXTURES & TEXTURE REGIONS, SOUNDS, FONTS
+    //---------------------------------------------
+    public static ITextureRegion mGameBackgroundTextureRegion;
 	public ITextureRegion mMenuBackgroundTextureRegion;
 	public Sound mSound;
 	public Font mFont;
+	
+	//---------------------------------------------
+    // CLASS LOGIC
+    //---------------------------------------------
 	
 	//The constructor does not do anything for this singleton
 	ResourceManager()
@@ -41,6 +59,14 @@ public class ResourceManager
 		}
 		return INSTANCE;
 	}
+	
+    public static void prepareManager(Engine engine, MainGameActivity activity, Camera camera, VertexBufferObjectManager vbom)
+    {
+        GetInstance().engine = engine;
+        GetInstance().activity = activity;
+        GetInstance().camera = camera;
+        GetInstance().vbom = vbom;
+    }
 	
 	// LOOK AT THE BOOK TO ADD FUNCTIONS TO LOAD RESOURCES
 	

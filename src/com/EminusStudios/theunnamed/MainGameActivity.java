@@ -8,12 +8,15 @@ import org.andengine.engine.options.resolutionpolicy.FillResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.ui.activity.BaseGameActivity;
 
-public class MainGameActivity extends BaseGameActivity {
+public class MainGameActivity extends BaseGameActivity 
+{
 
 	// The following constants will be used to define the width and height
 	// of our game's camera view
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 480;
+	
+	private ResourceManager m_ResourceManager;
 
 	// Declare a Camera object for our activity
 	private Camera mCamera;
@@ -58,6 +61,9 @@ public class MainGameActivity extends BaseGameActivity {
 		/* We should notify the pOnCreateResourcesCallback that we've finished
 		 * loading all of the necessary resources in our game AFTER they are loaded.
 		 * onCreateResourcesFinished() should be the last method called.  */
+		ResourceManager.prepareManager(mEngine, this, camera, getVertexBufferObjectManager());
+	    resourcesManager = ResourcesManager.getInstance();
+		
 		pOnCreateResourcesCallback.onCreateResourcesFinished();
 	}
 
