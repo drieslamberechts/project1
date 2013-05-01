@@ -1,3 +1,7 @@
+// NOTES
+// -----------------------
+// - This file will create all scenes and save them in the resource manager (Still writing this)
+
 package com.EminusStudios.theunnamed;
 
 import org.andengine.engine.camera.Camera;
@@ -8,6 +12,9 @@ import org.andengine.engine.options.resolutionpolicy.FillResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.ui.activity.BaseGameActivity;
 
+import com.EminusStudios.General.BaseScene;
+import com.EminusStudios.General.SplashScene;
+
 public class MainGameActivity extends BaseGameActivity 
 {
 
@@ -15,14 +22,12 @@ public class MainGameActivity extends BaseGameActivity
 	// of our game's camera view
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 480;
-	
-	private ResourceManager m_ResourceManager;
 
 	// Declare a Camera object for our activity
-	private Camera mCamera;
+	private Camera m_Camera;
 	
 	// Declare a Scene object for our activity
-	private Scene mScene;
+	private Scene m_Scene;
 	
 	/*
 	 * The onCreateEngineOptions method is responsible for creating the options to be
@@ -34,12 +39,12 @@ public class MainGameActivity extends BaseGameActivity
 	public EngineOptions onCreateEngineOptions() {
 
 		// Define our mCamera object
-		mCamera = new Camera(0, 0, WIDTH, HEIGHT);
+		m_Camera = new Camera(0, 0, WIDTH, HEIGHT);
 
 		// Declare & Define our engine options to be applied to our Engine object
 		EngineOptions engineOptions = new EngineOptions(true,
 				ScreenOrientation.LANDSCAPE_FIXED, new FillResolutionPolicy(),
-				mCamera);
+				m_Camera);
 
 		// It is necessary in a lot of applications to define the following
 		// wake lock options in order to disable the device's display
@@ -61,8 +66,7 @@ public class MainGameActivity extends BaseGameActivity
 		/* We should notify the pOnCreateResourcesCallback that we've finished
 		 * loading all of the necessary resources in our game AFTER they are loaded.
 		 * onCreateResourcesFinished() should be the last method called.  */
-		ResourceManager.prepareManager(mEngine, this, camera, getVertexBufferObjectManager());
-	    resourcesManager = ResourcesManager.getInstance();
+		ResourceManager.GetInstance().PrepareManager(mEngine, this, m_Camera, getVertexBufferObjectManager());
 		
 		pOnCreateResourcesCallback.onCreateResourcesFinished();
 	}
@@ -77,11 +81,12 @@ public class MainGameActivity extends BaseGameActivity
 	public void onCreateScene(OnCreateSceneCallback pOnCreateSceneCallback) 
 	{
 		// Create the Scene object
-		mScene = new Scene();
+		m_Scene = new Scene();
+		BaseScene test = new SplashScene();
 
 		// Notify the callback that we're finished creating the scene, returning
 		// mScene to the mEngine object (handled automatically)
-		pOnCreateSceneCallback.onCreateSceneFinished(mScene);
+		pOnCreateSceneCallback.onCreateSceneFinished(m_Scene);
 	}
 
 	/* The onPopulateScene method was introduced to AndEngine as a way of separating

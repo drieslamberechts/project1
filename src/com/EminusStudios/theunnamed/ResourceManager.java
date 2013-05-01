@@ -60,7 +60,7 @@ public class ResourceManager
 		return INSTANCE;
 	}
 	
-    public static void prepareManager(Engine engine, MainGameActivity activity, Camera camera, VertexBufferObjectManager vbom)
+    public static void PrepareManager(Engine engine, MainGameActivity activity, Camera camera, VertexBufferObjectManager vbom)
     {
         GetInstance().engine = engine;
         GetInstance().activity = activity;
