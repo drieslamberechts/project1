@@ -13,7 +13,6 @@ import org.andengine.entity.scene.Scene;
 import org.andengine.ui.activity.BaseGameActivity;
 
 import com.EminusStudios.General.BaseScene;
-import com.EminusStudios.General.SceneManager;
 import com.EminusStudios.General.SplashScene;
 
 public class MainGameActivity extends BaseGameActivity 
@@ -84,8 +83,7 @@ public class MainGameActivity extends BaseGameActivity
 		// Create the Scene object
 		m_Scene = new Scene();
 		
-		BaseScene test = new SplashScene();
-		SceneManager.GetInstance().AddScene(test);
+		//BaseScene test = new SplashScene();
 
 		// Notify the callback that we're finished creating the scene, returning
 		// mScene to the mEngine object (handled automatically)
