@@ -1,6 +1,8 @@
 // SINGLETON CLASS
 // ------------------------------------
 
+// hi dries
+
 package com.EminusStudios.theunnamed;
 
 public class GameManager
